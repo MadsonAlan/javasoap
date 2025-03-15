@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/order"
+           xmlns:tns="http://example.com/order"
+           elementFormDefault="qualified">
+
+    <!-- Request -->
+    <xs:element name="OrderRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response -->
+    <xs:element name="OrderResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="order" type="tns:Order"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Tipo Order -->
+    <xs:complexType name="Order">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="product" type="xs:string"/>
+            <xs:element name="price" type="xs:decimal"/>
+            <xs:element name="status" type="tns:OrderStatus"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Enum OrderStatus -->
+    <xs:simpleType name="OrderStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CREATED"/>
+            <xs:enumeration value="PROCESSING"/>
+            <xs:enumeration value="CANCELLED"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -114,14 +114,13 @@ public void processPayment(Order order) {
 src/
 ├── main/
 │   ├── java/
-│   │   └── com/example/javasoap/
+│   │   └── com/example/
+|   |       javasoap/
 │   │       ├── domain/               # Camada de Domínio (Entidades, Regras de Negócio)
-│   │       ├── application/          # Casos de Uso e Orquestração
 │   │       └── infrastructure/       # Implementações Concretas
-│   │           ├── soap/
-│   │           │   ├── producer/     # Endpoints SOAP
-│   │           │   └── consumer/     # Clientes SOAP
-│   │           └── persistence/      # Repositórios (JPA, InMemory)
+│   │           └── soap/
+│   │               ├── configuration/# Configuração do web service SOAP
+│   │               └── producer/     # Endpoints SOAP
 │   └── resources/
 │       └── xsd/                      # Definições de Schema XML
 ```
